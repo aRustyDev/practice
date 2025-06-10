@@ -1,0 +1,1 @@
+The src directory contains the C source files for the project, and you will spend most of your time here. I decided to keep it simple using a flat layout. Besides the main.c file which works as the entry file of the program, I split the rest of the code based on "concerns" and data-structures.
