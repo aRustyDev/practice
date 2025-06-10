@@ -1,5 +1,9 @@
 # Unity - Getting Started
 
+> The tests directory contains the tests for the project. I used the CUnit library for testing, and I found it to be a good fit for my needs. The tests directory contains a test file for each module in the src directory. For example, in the gnaro project, the tests directory cointains gnaro_test.c file which is meant to test whatever logic defined in src/gnaro.c.
+>
+> At this time, in pratice, the file only contains the code needed to setup the tests as recommended by the CUnit documentation. While the tests run, I actually never followed-up on writing useful checks for gnaro and barco since they're just side-, hobby-projects.
+
 ## Welcome
 
 Congratulations.
