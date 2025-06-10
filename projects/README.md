@@ -5,3 +5,11 @@ digital-clock
 password-generator
 rock-paper-scissors
 hangman
+card-game
+tic-tac-toe
+to-do-list
+api-server
+web-server
+process-monitor
+memory-monitor
+file-encrypter
