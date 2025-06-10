@@ -12,6 +12,31 @@ bool isValidInput(char target) {
     return false; // Or return -1 if not found
 }
 
+int getNextValue(char *buffer, int *index) {
+    int value = 0;
+    while (buffer[*index] >= '0' && buffer[*index] <= '9') {
+        value = value * 10 + (buffer[*index] - '0');
+        (*index)++;
+    }
+    while (true) {
+        switch (buffer[i]) {
+            case ' ':
+                i++;
+                continue;
+            case '\t':
+                i++;
+                break;
+            case '\n':
+                i++;
+                break;
+            default:
+                printf("Invalid input: %c\n", buffer[i]);
+                return 1;
+        }
+    }
+    return value;
+}
+
 int main() {
     char *buffer;
     int size = 10;
@@ -24,7 +49,7 @@ int main() {
         return 1;
     }
 
-    printf("Allowed Operators [+, -, *, /, '()', ^, sqrt]");
+    printf("Allowed Operators [+, -, *, /, '()', ^, sqrt]\n");
     printf("Enter equation: ");
     while ((c = getchar()) != '\n' && c != EOF) {
         buffer[length++] = c;
@@ -42,9 +67,41 @@ int main() {
         }
     }
     buffer[length] = '\0';
-    // while (1 == 1) {
+    int i = 0;
+    int res = 0;
+    while (c != '\0') {
+        c = buffer[i];
+        i++;
+        switch (c) {
+            case '+':
+                res += getNextValue(buffer, &i);
+                break;
+            case '-':
+                res -= getNextValue(buffer, &i);
+                break;
+            case '*':
+                res *= getNextValue(buffer, &i);
+                break;
+            case '/':
+                res /= getNextValue(buffer, &i);
+                break;
+            // case '(':
+            //     res = getNextValue(buffer, &i);
+            //     break;
+            // case ')':
+            //     res = getNextValue(buffer, &i);
+            //     break;
+            // case '^':
+            //     res = pow(res, getNextValue(buffer, &i));
+            //     break;
+            // case 's':
+            //     res = sqrt(res);
+            //     break;
+            default: // spaces
+                continue;
+            }
 
-    // }
+    }
 
 
     free(buffer);
